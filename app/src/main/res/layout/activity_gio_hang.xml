@@ -50,7 +50,7 @@
                     android:id="@+id/cart_icon"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_marginStart="150dp"
+                    android:layout_marginStart="180dp"
                     android:layout_marginTop="25dp"
                     app:srcCompat="@drawable/ic_giohang_28" />
 
@@ -74,7 +74,7 @@
                     android:id="@+id/tongcong_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:text="8.100.000"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -94,8 +94,8 @@
                 <TextView
                     android:id="@+id/giamgia_value"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0"
+                    android:layout_height="match_parent"
+                    android:text="1.422.000"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -117,7 +117,8 @@
                     android:id="@+id/thanhtien_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:text="6.678.000"
+                    android:textStyle="bold"
                     android:textSize="20sp" />
             </LinearLayout>
 
