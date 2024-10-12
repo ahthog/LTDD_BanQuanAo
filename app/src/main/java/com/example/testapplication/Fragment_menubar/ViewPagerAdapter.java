@@ -18,11 +18,11 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
         if (position == 0) {
             return new HomeFragment();
         } else if (position == 1) {
-            return new FavoritesFragment();
+            return new MenuFragment();
         } else if (position == 2) {
             return new SearchFragment();
         } else if (position == 3) {
-            return new ProfileFragment();
+            return new FavoritesFragment();
         } else if (position == 4) {
             return new ProfileFragment();
         } else {
