@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E2DDDD"
-    tools:context="GioHang.GioHangActivity">
+    tools:context="GioHang.GioHangXoaActivity">
 
     <FrameLayout
         android:id="@+id/custom_header"
@@ -29,7 +29,7 @@
                 android:orientation="horizontal"> <!-- Hướng ngang cho tiêu đề -->
 
                 <ImageView
-                    android:id="@+id/imageback"
+                    android:id="@+id/imageback_xoa"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginTop="20dp"
@@ -74,7 +74,7 @@
                     android:id="@+id/tongcong_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="8.100.000"
+                    android:text="5.400.000"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -95,7 +95,7 @@
                     android:id="@+id/giamgia_value"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="1.422.000"
+                    android:text="948.000"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -117,7 +117,7 @@
                     android:id="@+id/thanhtien_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="6.678.000"
+                    android:text="4.452.000"
                     android:textStyle="bold"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -127,18 +127,18 @@
     </FrameLayout>
 
     <fragment
-        android:id="@+id/fragment1"
+        android:id="@+id/fragment2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="170dp"
         android:layout_marginBottom="60dp"
-        android:name="GioHang.MatHang1Fragment"
+        android:name="GioHang.MatHang2Fragment"
         />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_xoa"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
