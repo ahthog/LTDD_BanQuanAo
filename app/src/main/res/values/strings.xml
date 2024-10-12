@@ -2,4 +2,10 @@
     <string name="app_name">testApplication</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="product_sizes">
+        <item>Size S</item>
+        <item>Size M</item>
+        <item>Size L</item>
+        <item>Size XL</item>
+    </string-array>
 </resources>

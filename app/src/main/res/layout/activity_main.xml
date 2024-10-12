@@ -7,13 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- FrameLayout để chứa các Fragment -->
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true" /> <!-- Đặt FrameLayout ở đầu -->
-
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager2"
         android:layout_width="match_parent"
@@ -31,4 +24,11 @@
         app:itemTextColor="@color/custom_color_navigation"
         app:menu="@menu/menu_navigation_bar"
         android:visibility="gone"/>
+
+    <!-- FrameLayout để chứa các Fragment -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true" /> <!-- Đặt FrameLayout ở đầu -->
 </RelativeLayout>
