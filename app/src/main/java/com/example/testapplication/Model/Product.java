@@ -1,4 +1,4 @@
-package com.example.testapplication.Fragment_menubar;
+package com.example.testapplication.Model;
 
 public class Product {
     private final int imageResource;

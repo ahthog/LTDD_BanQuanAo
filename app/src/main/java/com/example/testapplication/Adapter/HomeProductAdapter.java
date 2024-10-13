@@ -1,4 +1,4 @@
-package com.example.testapplication.home;
+package com.example.testapplication.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.testapplication.R;
-import com.example.testapplication.Fragment_menubar.Product;
+import com.example.testapplication.Model.Product;
 
 public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.ViewHolder> {
     private final Context context;

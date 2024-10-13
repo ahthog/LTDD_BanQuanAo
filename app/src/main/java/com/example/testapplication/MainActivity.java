@@ -10,7 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.testapplication.Fragment.LoadFragment;
-import com.example.testapplication.Fragment_menubar.ViewPagerAdapter;
+import com.example.testapplication.Adapter.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
