@@ -1,5 +1,7 @@
 package com.example.testapplication.Adapter;
 
+// CategoryAdapter.java
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,8 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.testapplication.R;
+
 import com.example.testapplication.Model.Category;
+import com.example.testapplication.R;
 
 import java.util.List;
 
@@ -18,6 +21,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     private List<Category> categoryList;
     private OnItemClickListener listener;
 
+    // Interface để xử lý sự kiện click vào item
     public interface OnItemClickListener {
         void onItemClick(int position);
     }
@@ -26,6 +30,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         this.listener = listener;
     }
 
+    // ViewHolder đại diện cho mỗi item
     public static class CategoryViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageViewCategory;
         public TextView textViewCategoryName;
