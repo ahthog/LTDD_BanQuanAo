@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="DatHang.ThanhCongActivity">
+
+    <FrameLayout
+        android:id="@+id/custom_header"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="0dp"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints"> <!-- Đặt hướng dọc cho LinearLayout chính -->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"> <!-- Hướng ngang cho tiêu đề -->
+
+                <ImageView
+                    android:id="@+id/imageback"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="15dp"
+                    app:srcCompat="@drawable/arrow" />
+
+                <TextView
+                    android:id="@+id/tieude2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Thông báo"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/thongbao1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:layout_marginStart="70dp"
+                android:layout_marginEnd="70dp"
+                android:layout_marginBottom="50dp"
+                android:text="Đặt hàng thành công"
+                android:textStyle="bold"
+                android:textSize="25sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/custom_header2"
+        android:layout_width="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_height="60dp"
+        android:background="@drawable/vien"
+        app:layout_constraintTop_toBottomOf="@+id/custom_header">
+
+        <TextView
+            android:id="@+id/goi_y1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:text="Có thể bạn cũng thích"
+            android:textSize="15sp" />
+    </FrameLayout>
+
+    <fragment
+        android:id="@+id/fragment3"
+        android:name="DatHang.MatHangYeuThichFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_header2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

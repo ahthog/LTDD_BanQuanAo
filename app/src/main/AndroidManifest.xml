@@ -13,6 +13,18 @@
         android:theme="@style/Theme.TestApplication"
         tools:targetApi="31">
         <activity
+            android:name="TrangCaNhan.TCNActivity"
+            android:exported="false" />
+        <activity
+            android:name="DatHang.ThanhCongActivity"
+            android:exported="false" />
+        <activity
+            android:name="DatHang.DatHangThanhCongActivity"
+            android:exported="false" />
+        <activity
+            android:name="DatHang.ThongBaoActivity"
+            android:exported="false" />
+        <activity
             android:name="DatHang.DatHangXoaActivity"
             android:exported="false" />
         <activity

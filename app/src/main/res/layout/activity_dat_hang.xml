@@ -102,13 +102,38 @@
             <fragment
                 android:id="@+id/fragment2"
                 android:layout_width="match_parent"
-                android:layout_height="375dp"
+                android:layout_height="340dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="0dp"
                 android:name="DatHang.PhuongThucTT1Fragment"
                 />
+            <FrameLayout
+                android:id="@+id/empty_frame"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="15dp"
+                android:background="@android:color/white" >
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="15dp"
+                    android:text="ĐẶT HÀNG" />
+            </FrameLayout>
+
+            <View
+                android:id="@+id/overlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#80000000"
+                android:visibility="gone"/>
+
 
         </LinearLayout>
 
