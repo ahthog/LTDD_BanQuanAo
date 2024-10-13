@@ -1,23 +1,38 @@
 package com.example.testapplication.Fragment_menubar;
 
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.example.testapplication.R;
+import androidx.viewpager2.widget.ViewPager2;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.testapplication.home.HomeBannerAdapter;
+import com.example.testapplication.home.HomeProductAdapter;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import android.os.Bundle;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
-import com.example.testapplication.R;
-import com.example.testapplication.home.HomeBannerAdapter;
-import com.example.testapplication.home.ProductNewAdapter;
-import com.example.testapplication.home.ProductBestAdapter;
+
+import com.example.testapplication.Fragment_menubar.HomeFragment;
+import com.example.testapplication.Fragment_menubar.Product;
+import com.example.testapplication.Fragment_menubar.HomeFragment;
 
 public class HomeFragment extends Fragment {
 
     private ViewPager2 viewPager;
-    private RecyclerView recyclerView, recyclerViewBest;
+    private RecyclerView recyclerView;
 
     // Các banner
     private final int[] banners = {
@@ -26,67 +41,33 @@ public class HomeFragment extends Fragment {
             R.drawable.bannerthree
     };
 
-    // Mảng sản phẩm mới (ảnh sản phẩm)
-    private Product[] products = {
-            new Product(R.drawable.productone, "Product 1", "Red", "Description of Product 1", "$100", 4.5f),
-            new Product(R.drawable.producttwo, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
-            new Product(R.drawable.producthree, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
-            new Product(R.drawable.productseven, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
-            new Product(R.drawable.producttwo, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
-            new Product(R.drawable.producttwo, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
-            new Product(R.drawable.productsix, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
-            new Product(R.drawable.producttwo, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
-            new Product(R.drawable.productfour, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f)
-            // Các sản phẩm mới khác
+    // Danh sách sản phẩm với chỉ hình ảnh
+    private final Product[] products = {
+            new Product(R.drawable.productone),
+            new Product(R.drawable.producttwo),
+            new Product(R.drawable.producthree),
+            new Product(R.drawable.productfour),
+            new Product(R.drawable.productfive),
+            new Product(R.drawable.productsix),
+            new Product(R.drawable.productseven)
+            // Thêm các sản phẩm khác nếu cần
     };
-
-    // Mảng sản phẩm bán chạy (tên và ảnh sản phẩm)
-    private Product[] bestSellingProducts = {
-            new Product(R.drawable.productsix, "Product 1", "Red", "Description of Product 1", "$100", 4.5f),
-            new Product(R.drawable.producthree, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
-            new Product(R.drawable.productfive, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
-            new Product(R.drawable.producttwo, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
-            new Product(R.drawable.productone, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
-            new Product(R.drawable.producttwo, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
-            new Product(R.drawable.producthree, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
-            new Product(R.drawable.producttwo, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
-            new Product(R.drawable.productsix, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f)
-            // Các sản phẩm bán chạy khác
-    };
-
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate layout
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        // Tìm các view trong layout
         viewPager = view.findViewById(R.id.view_pager_banner);
         recyclerView = view.findViewById(R.id.recycler_view_products);
-        recyclerViewBest = view.findViewById(R.id.recycler_view_productbest);
 
+        // Thiết lập adapter cho ViewPager2
+        HomeBannerAdapter adapter = new HomeBannerAdapter(getContext(), banners);
+        viewPager.setAdapter(adapter);
 
-        // Thiết lập adapter cho ViewPager2 (banner)
-        HomeBannerAdapter bannerAdapter = new HomeBannerAdapter(getContext(), banners);
-        viewPager.setAdapter(bannerAdapter);
-
-        // Thiết lập adapter cho RecyclerView (sản phẩm thông thường, ngang)
-        ProductNewAdapter productAdapter = new ProductNewAdapter(getContext(), products);
+        // Thiết lập adapter cho RecyclerView với chiều ngang
+        HomeProductAdapter productAdapter = new HomeProductAdapter(getContext(), products);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setAdapter(productAdapter);
-
-        // Trong onCreateView hoặc onViewCreated của Fragment hoặc Activity của bạn
-        recyclerViewBest = view.findViewById(R.id.recycler_view_productbest);
-
-// Sử dụng GridLayoutManager với 2 cột
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
-        recyclerViewBest.setLayoutManager(gridLayoutManager);
-
-// Thiết lập adapter
-        ProductBestAdapter productbestAdapter = new ProductBestAdapter(getContext(), bestSellingProducts);
-        recyclerViewBest.setAdapter(productbestAdapter);
 
         // Tự động chạy banner
         startAutoScroll();
@@ -95,7 +76,6 @@ public class HomeFragment extends Fragment {
     }
 
     private void startAutoScroll() {
-        // Tự động cuộn qua các banner
         viewPager.postDelayed(new Runnable() {
             @Override
             public void run() {

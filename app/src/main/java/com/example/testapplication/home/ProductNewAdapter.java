@@ -7,16 +7,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.testapplication.R;
 import com.example.testapplication.Fragment_menubar.Product;
 
-public class ProductNewAdapter extends RecyclerView.Adapter<ProductNewAdapter.ViewHolder> {
+public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.ViewHolder> {
     private final Context context;
     private final Product[] products;
-    private OnItemClickListener listener;
 
-    public ProductNewAdapter(Context context, Product[] products) {
+    public HomeProductAdapter(Context context, Product[] products) {
         this.context = context;
         this.products = products;
     }
@@ -30,15 +28,7 @@ public class ProductNewAdapter extends RecyclerView.Adapter<ProductNewAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Product product = products[position];
-        holder.imageView.setImageResource(product.getImageResource()); // Set ảnh cho item
-
-        // Xử lý sự kiện click vào sản phẩm
-        holder.imageView.setOnClickListener(v -> {
-            if (listener != null) {
-                listener.onItemClick(product); // Gọi sự kiện click và truyền sản phẩm
-            }
-        });
+        holder.imageView.setImageResource(products[position].getImageResource());
     }
 
     @Override
@@ -46,20 +36,12 @@ public class ProductNewAdapter extends RecyclerView.Adapter<ProductNewAdapter.Vi
         return products.length;
     }
 
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.listener = listener;
-    }
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
 
         ViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.product_image);
         }
-    }
-
-    public interface OnItemClickListener {
-        void onItemClick(Product product);
     }
 }
