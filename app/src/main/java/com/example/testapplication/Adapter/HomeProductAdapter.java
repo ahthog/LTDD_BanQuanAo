@@ -41,7 +41,7 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
 
         ViewHolder(View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.product_image);
+            imageView = itemView.findViewById(R.id.imageViewProduct);
         }
     }
 }

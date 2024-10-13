@@ -8,13 +8,13 @@ public class Product implements Parcelable {
     private String name;
     private double price;
     private int imageResource;
+    public Product(int imageResource){
+        this.imageResource = imageResource;
+    }
 
     public Product(String name, double price, int imageResource) {
         this.name = name;
         this.price = price;
-        this.imageResource = imageResource;
-    }
-    public Product(int imageResource) {
         this.imageResource = imageResource;
     }
 

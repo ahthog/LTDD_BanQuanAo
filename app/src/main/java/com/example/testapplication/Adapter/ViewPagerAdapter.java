@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.testapplication.Fragment_menubar.HomeFragment;
-import com.example.testapplication.Fragment_menubar.MenuFragment;
+import com.example.testapplication.Fragment_menubar.CategoryFragment;
 import com.example.testapplication.Fragment_menubar.ProfileFragment;
 import com.example.testapplication.Fragment_menubar.SearchFragment;
 
@@ -23,7 +23,7 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
         if (position == 0) {
             return new HomeFragment();
         } else if (position == 1) {
-            return new MenuFragment();
+            return new CategoryFragment();
         } else if (position == 2) {
             return new SearchFragment();
         } else if (position == 3) {
