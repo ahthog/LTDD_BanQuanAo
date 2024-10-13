@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.testapplication.Fragment_menubar.HomeFragment;
 import com.example.testapplication.MainActivity;
@@ -38,6 +39,15 @@ public class LoginFragment extends Fragment {
                 mainActivity.replaceFragment(new HomeFragment()); // Chuyển sang HomeFragment
             }
         });
+
+        TextView textView = view.findViewById(R.id.text_forget_pass);
+        textView.setOnClickListener(v -> {
+            // Chuyển sang LoginFragment
+            if (getActivity() != null) {
+                ((MainActivity) getActivity()).replaceFragment(new ForgetPassFragment());
+            }
+        });
+
 
         return view;
     }

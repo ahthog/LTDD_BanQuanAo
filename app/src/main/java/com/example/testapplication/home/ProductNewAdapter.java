@@ -1,25 +1,22 @@
 package com.example.testapplication.home;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.testapplication.DetailFragment.ProductDetailFragment;
 import com.example.testapplication.R;
 import com.example.testapplication.Fragment_menubar.Product;
 
-public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.ViewHolder> {
+public class ProductNewAdapter extends RecyclerView.Adapter<ProductNewAdapter.ViewHolder> {
     private final Context context;
     private final Product[] products;
     private OnItemClickListener listener;
 
-    public HomeProductAdapter(Context context, Product[] products) {
+    public ProductNewAdapter(Context context, Product[] products) {
         this.context = context;
         this.products = products;
     }

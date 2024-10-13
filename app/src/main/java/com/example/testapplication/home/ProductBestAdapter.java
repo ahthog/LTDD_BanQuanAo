@@ -15,12 +15,12 @@ import com.example.testapplication.DetailFragment.ProductDetailFragment;
 import com.example.testapplication.Fragment_menubar.Product;
 import com.example.testapplication.R;
 
-public class HomeProductBestAdapter extends RecyclerView.Adapter<HomeProductBestAdapter.ViewHolder> {
+public class ProductBestAdapter extends RecyclerView.Adapter<ProductBestAdapter.ViewHolder> {
     private final Context context;
     private final Product[] bestSellingProducts;
     private OnItemClickListener listener;
 
-    public HomeProductBestAdapter(Context context, Product[] bestSellingProducts) {
+    public ProductBestAdapter(Context context, Product[] bestSellingProducts) {
         this.context = context;
         this.bestSellingProducts = bestSellingProducts;
     }

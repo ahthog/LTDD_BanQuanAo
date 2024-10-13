@@ -19,11 +19,11 @@ public class FavoritesFragment extends Fragment {
     private final Product[] favoriteProducts = {
             new Product(R.drawable.productone, "Sản phẩm 1", "Đỏ", "500.000 VND"),
             new Product(R.drawable.producttwo, "Sản phẩm 2", "Xanh", "350.000 VND"),
+            new Product(R.drawable.productfive, "Sản phẩm 3", "Vàng", "400.000 VND"),
+            new Product(R.drawable.productfour, "Sản phẩm 3", "Vàng", "400.000 VND"),
+            new Product(R.drawable.productseven, "Sản phẩm 3", "Vàng", "400.000 VND"),
             new Product(R.drawable.producthree, "Sản phẩm 3", "Vàng", "400.000 VND"),
-            new Product(R.drawable.producthree, "Sản phẩm 3", "Vàng", "400.000 VND"),
-            new Product(R.drawable.producthree, "Sản phẩm 3", "Vàng", "400.000 VND"),
-            new Product(R.drawable.producthree, "Sản phẩm 3", "Vàng", "400.000 VND"),
-            new Product(R.drawable.producthree, "Sản phẩm 3", "Vàng", "400.000 VND")
+            new Product(R.drawable.productsix, "Sản phẩm 3", "Vàng", "400.000 VND")
     };
 
     @Override

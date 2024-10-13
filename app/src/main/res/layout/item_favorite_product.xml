@@ -24,8 +24,8 @@
         <!-- Icon xóa (ở góc dưới bên phải) -->
         <ImageView
             android:id="@+id/img_delete"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
             android:src="@drawable/ic_delete"
             android:layout_gravity="bottom|end"
             android:layout_margin="8dp" />
@@ -96,7 +96,8 @@
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:text="Thêm"
-        android:background="@drawable/button_rounded"
         android:textColor="#FFFFFF"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/black"
+        android:background="@drawable/button_rounded"/>
 </LinearLayout>

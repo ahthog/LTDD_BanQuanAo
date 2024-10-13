@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Dòng 1 -->
+    <View
+        android:id="@+id/viewLine1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Tab layout cho các trạng thái đơn hàng -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabMode="scrollable"
+        app:tabIndicatorColor="@android:color/holo_blue_dark" />
+
+    <!-- Dòng 2 -->
+    <View
+        android:id="@+id/viewLine2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- ViewPager2 cho các phần chi tiết -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager_history"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <!-- Dòng 3 -->
+    <View
+        android:id="@+id/viewLine3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/black" />
+
+    <!-- TextView thông báo "Có thể bạn cũng thích" -->
+    <TextView
+        android:id="@+id/text_favorite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Có thể bạn cũng thích"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginTop="16dp" />
+
+    <!-- Dòng 4 -->
+    <View
+        android:id="@+id/viewLine4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- RecyclerView cho danh sách đơn hàng (Cuộn khi có đủ dữ liệu) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_orders"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

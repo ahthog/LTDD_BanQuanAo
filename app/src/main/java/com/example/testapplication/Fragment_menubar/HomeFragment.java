@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 import com.example.testapplication.R;
 import com.example.testapplication.home.HomeBannerAdapter;
-import com.example.testapplication.home.HomeProductAdapter;
-import com.example.testapplication.home.HomeProductBestAdapter;
+import com.example.testapplication.home.ProductNewAdapter;
+import com.example.testapplication.home.ProductBestAdapter;
 
 public class HomeFragment extends Fragment {
 
@@ -26,29 +26,35 @@ public class HomeFragment extends Fragment {
             R.drawable.bannerthree
     };
 
-    // Các sản phẩm
-    private final Product[] products = {
-            new Product(R.drawable.productone),
-            new Product(R.drawable.producttwo),
-            new Product(R.drawable.producthree),
-            new Product(R.drawable.productfour),
-            new Product(R.drawable.productfive),
-            new Product(R.drawable.productsix),
-            new Product(R.drawable.productseven)
+    // Mảng sản phẩm mới (ảnh sản phẩm)
+    private Product[] products = {
+            new Product(R.drawable.productone, "Product 1", "Red", "Description of Product 1", "$100", 4.5f),
+            new Product(R.drawable.producttwo, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
+            new Product(R.drawable.producthree, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
+            new Product(R.drawable.productseven, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
+            new Product(R.drawable.producttwo, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
+            new Product(R.drawable.producttwo, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
+            new Product(R.drawable.productsix, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
+            new Product(R.drawable.producttwo, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
+            new Product(R.drawable.productfour, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f)
+            // Các sản phẩm mới khác
     };
 
-    // Các sản phẩm bán chạy
-    private final Product[] bestSellingProducts = {
-            new Product(R.drawable.productfive),
-            new Product(R.drawable.productsix),
-            new Product(R.drawable.productseven),
-            new Product(R.drawable.productseven),
-            new Product(R.drawable.productseven),
-            new Product(R.drawable.productseven),
-            new Product(R.drawable.productseven),
-            new Product(R.drawable.productseven)
-
+    // Mảng sản phẩm bán chạy (tên và ảnh sản phẩm)
+    private Product[] bestSellingProducts = {
+            new Product(R.drawable.productsix, "Product 1", "Red", "Description of Product 1", "$100", 4.5f),
+            new Product(R.drawable.producthree, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
+            new Product(R.drawable.productfive, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
+            new Product(R.drawable.producttwo, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
+            new Product(R.drawable.productone, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
+            new Product(R.drawable.producttwo, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
+            new Product(R.drawable.producthree, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
+            new Product(R.drawable.producttwo, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f),
+            new Product(R.drawable.productsix, "Product 2", "Blue", "Description of Product 2", "$150", 4.0f)
+            // Các sản phẩm bán chạy khác
     };
+
+
 
 
     @Override
@@ -67,7 +73,7 @@ public class HomeFragment extends Fragment {
         viewPager.setAdapter(bannerAdapter);
 
         // Thiết lập adapter cho RecyclerView (sản phẩm thông thường, ngang)
-        HomeProductAdapter productAdapter = new HomeProductAdapter(getContext(), products);
+        ProductNewAdapter productAdapter = new ProductNewAdapter(getContext(), products);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setAdapter(productAdapter);
 
@@ -79,7 +85,7 @@ public class HomeFragment extends Fragment {
         recyclerViewBest.setLayoutManager(gridLayoutManager);
 
 // Thiết lập adapter
-        HomeProductBestAdapter productbestAdapter = new HomeProductBestAdapter(getContext(), bestSellingProducts);
+        ProductBestAdapter productbestAdapter = new ProductBestAdapter(getContext(), bestSellingProducts);
         recyclerViewBest.setAdapter(productbestAdapter);
 
         // Tự động chạy banner
@@ -103,4 +109,3 @@ public class HomeFragment extends Fragment {
         }, 3000);
     }
 }
-
