@@ -38,6 +38,9 @@ public class FavoriteProductAdapter extends RecyclerView.Adapter<FavoriteProduct
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Product product = favoriteProducts[position];
+
+        // Cập nhật ViewHolder với thông tin sản phẩm
+        holder.bindProduct(product);
         // Cập nhật hình ảnh sản phẩm
         holder.imageView.setImageResource(product.getImageResource());
         // Cập nhật tên sản phẩm
@@ -64,6 +67,8 @@ public class FavoriteProductAdapter extends RecyclerView.Adapter<FavoriteProduct
         Spinner sizeSpinner;
         Button addToCartButton;
 
+        private Product currentProduct; // Biến để lưu sản phẩm hiện tại
+
         public ViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.img_product);
@@ -79,16 +84,24 @@ public class FavoriteProductAdapter extends RecyclerView.Adapter<FavoriteProduct
                 // Có thể thêm logic thêm sản phẩm vào giỏ hàng của người dùng
             });
 
-            // Thêm sự kiện click vào ảnh để chuyển sang layout mới
             imageView.setOnClickListener(v -> {
                 Intent intent = new Intent(itemView.getContext(), NewActivity.class);
 
-                // Truyền dữ liệu nếu cần, ví dụ truyền tên sản phẩm hoặc thông tin sản phẩm
-                intent.putExtra("productName", nameTextView.getText().toString());
+                // Truyền các thuộc tính của sản phẩm qua Intent
+                intent.putExtra("productImage", currentProduct.getImageResource());
+                intent.putExtra("productName", currentProduct.getName());
+                intent.putExtra("productColor", currentProduct.getColor());
+                intent.putExtra("productDescription", currentProduct.getDescription());
+                intent.putExtra("productPrice", currentProduct.getPrice());
 
                 // Khởi động Activity mới
                 itemView.getContext().startActivity(intent);
             });
+
+        }
+        // Phương thức bind sản phẩm vào ViewHolder
+        public void bindProduct(Product product) {
+            this.currentProduct = product;
         }
     }
 

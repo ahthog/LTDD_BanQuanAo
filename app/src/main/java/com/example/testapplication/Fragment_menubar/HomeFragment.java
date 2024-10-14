@@ -29,11 +29,18 @@ public class HomeFragment extends Fragment {
     private final Product[] products = {
             new Product(R.drawable.productone, "Product One", "Red", "A great product", "100 USD", 4.5f),
             new Product(R.drawable.producttwo, "Product Two", "Blue", "Another great product", "120 USD", 4.0f),
+            new Product(R.drawable.productfive, "Product Five", "Green", "Best seller", "150 USD", 5.0f),
+            new Product(R.drawable.productsix, "Product Six", "Yellow", "Top rated", "130 USD", 4.8f),
+            new Product(R.drawable.productsix, "Product Six", "Yellow", "Top rated", "130 USD", 4.8f)
             // thêm các sản phẩm khác
     };
 
     private final Product[] bestSellingProducts = {
             new Product(R.drawable.productfive, "Product Five", "Green", "Best seller", "150 USD", 5.0f),
+            new Product(R.drawable.productsix, "Product Six", "Yellow", "Top rated", "130 USD", 4.8f),
+            new Product(R.drawable.productsix, "Product Six", "Yellow", "Top rated", "130 USD", 4.8f),
+            new Product(R.drawable.productsix, "Product Six", "Yellow", "Top rated", "130 USD", 4.8f),
+            new Product(R.drawable.productsix, "Product Six", "Yellow", "Top rated", "130 USD", 4.8f),
             new Product(R.drawable.productsix, "Product Six", "Yellow", "Top rated", "130 USD", 4.8f)
     };
 

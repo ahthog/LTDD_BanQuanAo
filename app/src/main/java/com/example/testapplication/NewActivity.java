@@ -1,7 +1,9 @@
 package com.example.testapplication;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -15,14 +17,32 @@ public class NewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new); // Layout mới bạn muốn chuyển đến
+        setContentView(R.layout.activity_new);
 
-        // Nhận dữ liệu truyền từ Adapter (nếu có)
+        // Nhận các thuộc tính từ Intent
         Intent intent = getIntent();
+        int productImage = intent.getIntExtra("productImage", 0);
         String productName = intent.getStringExtra("productName");
+        String productColor = intent.getStringExtra("productColor");
+        String productDescription = intent.getStringExtra("productDescription");
+        String productPrice = intent.getStringExtra("productPrice");
 
-        // Ví dụ: Cập nhật TextView với tên sản phẩm
-        TextView productNameTextView = findViewById(R.id.tv_product_name_new);
-        productNameTextView.setText(productName);
+        // Cập nhật giao diện với các thuộc tính nhận được
+        ImageView imageView = findViewById(R.id.productImage);
+        imageView.setImageResource(productImage);
+
+        TextView nameTextView = findViewById(R.id.productName);
+        nameTextView.setText(productName);
+
+        TextView colorTextView = findViewById(R.id.productColor);
+        colorTextView.setText("Màu:" + productColor);
+        colorTextView.setTypeface(null, Typeface.BOLD);
+
+        TextView descriptionTextView = findViewById(R.id.productDescription);
+        descriptionTextView.setText(productDescription);
+
+        TextView priceTextView = findViewById(R.id.productPrice);
+        priceTextView.setText(productPrice);
     }
+
 }

@@ -21,13 +21,13 @@ public class FavoritesFragment extends Fragment {
     private RecyclerView recyclerViewFavorites;
     // Dữ liệu sản phẩm yêu thích (ví dụ)
     private final Product[] favoriteProducts = {
-            new Product(R.drawable.productone, "Sản phẩm 1", "Đỏ", "500.000 VND"),
-            new Product(R.drawable.producttwo, "Sản phẩm 2", "Xanh", "350.000 VND"),
-            new Product(R.drawable.producthree, "Sản phẩm 3", "Vàng", "400.000 VND"),
-            new Product(R.drawable.producthree, "Sản phẩm 3", "Vàng", "400.000 VND"),
-            new Product(R.drawable.producthree, "Sản phẩm 3", "Vàng", "400.000 VND"),
-            new Product(R.drawable.producthree, "Sản phẩm 3", "Vàng", "400.000 VND"),
-            new Product(R.drawable.producthree, "Sản phẩm 3", "Vàng", "400.000 VND")
+            new Product(R.drawable.productsix, "NEGA PANTS", "Đỏ", "Thiết kế thanh lịch, tôn dáng, phù hợp cho nhiều dịp. Màu sắc dễ phối, phong cách hiện đại.", "1.000.000 đ", 4.8f),
+            new Product(R.drawable.productseven, "NEGA PANTS", "Xanh", "Thiết kế thanh lịch, tôn dáng, phù hợp cho nhiều dịp. Màu sắc dễ phối, phong cách hiện đại.", "1.500.000 đ", 4.8f),
+            new Product(R.drawable.producttwo, "NEGA PANTS", "Trắng", "Thiết kế thanh lịch, tôn dáng, phù hợp cho nhiều dịp. Màu sắc dễ phối, phong cách hiện đại.", "2.500.000 đ", 4.8f),
+            new Product(R.drawable.productsix, "NEGA PANTS", "Đen", "Thiết kế thanh lịch, tôn dáng, phù hợp cho nhiều dịp. Màu sắc dễ phối, phong cách hiện đại.", "2.000.000 đ", 4.8f),
+            new Product(R.drawable.producthree, "NEGA PANTS", "Đỏ", "Thiết kế thanh lịch, tôn dáng, phù hợp cho nhiều dịp. Màu sắc dễ phối, phong cách hiện đại.", "1.600.000 đ", 4.8f),
+            new Product(R.drawable.productsix, "NEGA PANTS", "Trắng", "Thiết kế thanh lịch, tôn dáng, phù hợp cho nhiều dịp. Màu sắc dễ phối, phong cách hiện đại.", "2.000.000 đ", 4.8f),
+            new Product(R.drawable.productone, "NEGA PANTS", "Đen", "Thiết kế thanh lịch, tôn dáng, phù hợp cho nhiều dịp. Màu sắc dễ phối, phong cách hiện đại.", "1.800.000 đ", 4.8f)
     };
 
     @Override
