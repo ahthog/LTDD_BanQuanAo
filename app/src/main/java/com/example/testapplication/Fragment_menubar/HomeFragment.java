@@ -80,7 +80,7 @@ public class HomeFragment extends Fragment {
         productAdapter.setOnItemClickListener(product -> {
             // Tạo một đối tượng Bundle để truyền dữ liệu
             Bundle bundle = new Bundle();
-            bundle.putSerializable("product", product);  // Truyền đối tượng Product vào Bundle
+            bundle.putParcelable("product", product);  // Sử dụng putParcelable thay vì putSerializable
 
             // Tạo một đối tượng ProductDetailFragment
             ProductDetailFragment productDetailFragment = new ProductDetailFragment();
@@ -97,7 +97,7 @@ public class HomeFragment extends Fragment {
         productBestAdapter.setOnItemClickListener(product -> {
             // Tạo một đối tượng Bundle để truyền dữ liệu
             Bundle bundle = new Bundle();
-            bundle.putSerializable("product", product);  // Truyền đối tượng Product vào Bundle
+            bundle.putParcelable("product", product);  // Sử dụng putParcelable thay vì putSerializable
 
             // Tạo ProductDetailFragment và truyền dữ liệu qua Bundle
             ProductDetailFragment productDetailFragment = new ProductDetailFragment();
@@ -110,6 +110,7 @@ public class HomeFragment extends Fragment {
                     .commit();
         });
     }
+
 
 
     private void startAutoScroll() {

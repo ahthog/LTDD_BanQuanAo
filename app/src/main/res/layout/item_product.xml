@@ -10,9 +10,10 @@
 
     <ImageView
         android:id="@+id/product_image_new"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="180dp"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"/>
     <TextView
         android:id="@+id/product_name"
         android:layout_width="wrap_content"

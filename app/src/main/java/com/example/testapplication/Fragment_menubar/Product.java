@@ -1,8 +1,13 @@
 package com.example.testapplication.Fragment_menubar;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
-public class Product implements Serializable{
+public class Product implements Parcelable{
     private int imageResource;
     private String name;
     private String color;  // Đổi 'string' thành 'String'
@@ -18,6 +23,11 @@ public class Product implements Serializable{
         this.description = description;
         this.price = price;
         this.rating = rating;
+    }
+    public Product(String name, String price, int imageResource) {
+        this.name = name;
+        this.price = price;
+        this.imageResource = imageResource;
     }
     // Thêm constructor không có rating
     public Product(int imageResource, String name, String color, String price) {
@@ -93,5 +103,32 @@ public class Product implements Serializable{
 
     public void setRating(float rating) {
         this.rating = rating;
+    }
+
+    protected Product(Parcel in) {
+        name = in.readString();
+        price = in.readString();
+        imageResource = in.readInt();
+    }
+    public static final Parcelable.Creator<Product> CREATOR = new Parcelable.Creator<Product>() {
+        @Override
+        public Product createFromParcel(Parcel in) {
+            return new Product(in);
+        }
+
+        @Override
+        public Product[] newArray(int size) {
+            return new Product[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+
     }
 }

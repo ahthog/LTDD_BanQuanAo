@@ -6,12 +6,13 @@
     android:padding="16dp">
 
     <!-- ViewPager2 cho các phần chi tiết -->
+
+    <!-- Dòng 3 -->
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager_history"
         android:layout_width="match_parent"
         android:layout_height="200dp" />
 
-    <!-- Dòng 3 -->
     <View
         android:id="@+id/viewLine3"
         android:layout_width="match_parent"

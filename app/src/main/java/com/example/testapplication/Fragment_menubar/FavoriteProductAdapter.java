@@ -11,13 +11,10 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.testapplication.NewActivity;
+import com.example.testapplication.ProductDetailActivity;
 import com.example.testapplication.R;
-
-import java.util.List;
 
 public class FavoriteProductAdapter extends RecyclerView.Adapter<FavoriteProductAdapter.ViewHolder> {
 
@@ -85,7 +82,7 @@ public class FavoriteProductAdapter extends RecyclerView.Adapter<FavoriteProduct
             });
 
             imageView.setOnClickListener(v -> {
-                Intent intent = new Intent(itemView.getContext(), NewActivity.class);
+                Intent intent = new Intent(itemView.getContext(), ProductDetailActivity.class);
 
                 // Truyền các thuộc tính của sản phẩm qua Intent
                 intent.putExtra("productImage", currentProduct.getImageResource());

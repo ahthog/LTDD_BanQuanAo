@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E2E2E2">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +14,7 @@
         <ImageView
             android:id="@+id/productImage"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="400dp"
             android:src="@drawable/producthree"/>
 
         <!-- Tên sản phẩm -->
@@ -32,17 +31,19 @@
         <RatingBar
             android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:numStars="5"
             android:rating="4.5"
-            android:layout_marginTop="8dp"/>
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:progressTint="@android:color/holo_orange_light"
+            android:secondaryProgressTint="@android:color/darker_gray"/>
 
         <!-- Màu sắc sản phẩm -->
         <TextView
             android:id="@+id/productColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Màu sắc: Đỏ"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
 
@@ -55,9 +56,7 @@
             android:textSize="16sp"
             android:layout_marginTop="16dp"/>
 
-        <!-- Giá sản phẩm và Button Giỏ hàng -->
-
-        <!-- Kích cỡ sản phẩm (Hiển thị sau khi xác nhận) -->
+        <!-- Button chọn kích cỡ sản phẩm -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,66 +64,71 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <!-- Giá sản phẩm -->
+            <!-- Kích cỡ sản phẩm -->
             <TextView
-                android:id="@+id/productPrice"
+                android:id="@+id/productSize"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:text="2,500,000đ"
-                android:textColor="#FF5722"
-                android:textSize="18sp" />
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:text="Kích cỡ"
+                android:textStyle="bold"/>
 
-            <!-- Button Giỏ hàng -->
-            <ImageButton
-                android:id="@+id/addToCartBtn"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="?android:attr/selectableItemBackground"
-                android:contentDescription="Add to Cart"
-                android:src="@drawable/ic_cart" />
+            <!-- Button M -->
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:text="M"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/round_conner"/>
+
+            <!-- Button L -->
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:text="L"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/round_conner"/>
+
+            <!-- Button XL -->
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:text="XL"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/round_conner"/>
         </LinearLayout>
+
+        <!-- Giá sản phẩm (hiển thị bên dưới các button kích cỡ) -->
+        <TextView
+            android:id="@+id/productPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="start"/>
+
+        <!-- Button Giỏ hàng (hiển thị ở gần phía dưới) -->
+
+        <ImageButton
+            android:id="@+id/addToCartBtn"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_cart"
+            android:background="@drawable/button_background"
+            android:scaleType="fitCenter"
+            android:padding="8dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="Add to Cart" />
+
 
         <TextView
             android:id="@+id/sizeSelected"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Kích cỡ: M"
             android:textSize="16sp"
             android:layout_marginTop="16dp"/>
-
-        <!-- Số lượng sản phẩm -->
-        <LinearLayout
-            android:id="@+id/quantityLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginTop="8dp">
-
-            <!-- Button Giảm số lượng -->
-            <Button
-                android:id="@+id/decrementBtn"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:text="-"/>
-
-            <!-- Hiển thị số lượng -->
-            <TextView
-                android:id="@+id/quantityText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1"
-                android:textSize="18sp"
-                android:padding="16dp"
-                android:gravity="center"/>
-
-            <!-- Button Tăng số lượng -->
-            <Button
-                android:id="@+id/incrementBtn"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:text="+"/>
-        </LinearLayout>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
