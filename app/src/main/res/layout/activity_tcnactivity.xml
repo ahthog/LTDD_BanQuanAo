@@ -126,21 +126,121 @@
             </LinearLayout>
 
 
-            <ImageView
-                android:id="@+id/choxacnhan1"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="40dp"
-                android:src="@drawable/choxacnhan" />
-
-            <TextView
-                android:id="@+id/choxacnhan2"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="5dp"
-                android:text="Chờ xác nhận"
-                android:textSize="16sp" />
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/choxacnhan1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/choxacnhan"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/choxacnhan2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chờ xác nhận"
+                        android:textSize="15sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="15dp"
+                        android:gravity="center"
+                        android:textAlignment="center"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/cholayhang1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/cholayhang"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/cholayhang2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chờ lấy hàng"
+                        android:textSize="15sp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:textAlignment="center"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/chogiaohang1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/chogiaohang"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/chogiaohang2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chờ giao hàng"
+                        android:textSize="15sp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:textAlignment="center"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/danhgia1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/danhgia"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/danhgia2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đánh giá"
+                        android:textSize="15sp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:textAlignment="center"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
@@ -222,7 +322,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="25dp"
-                        android:src="@drawable/ic_location_on_30" />
+                        android:src="@drawable/baseline_person_30" />
 
                     <TextView
                         android:id="@+id/taikhoan2"
@@ -230,19 +330,18 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="15dp"
-                        android:text="Đia chỉ của tôi"
+                        android:text="Tài khoản"
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/next3"
+                        android:id="@+id/next4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=">"
                         android:textSize="25dp"
-                        android:layout_marginStart="130dp"
+                        android:layout_marginStart="167dp"
                         android:layout_gravity="center_vertical"/>
                 </LinearLayout>
-
 
             </FrameLayout>
 
@@ -254,6 +353,38 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/nentrang_boder">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/thongbao1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="25dp"
+                        android:src="@drawable/ic_thongbao_30" />
+
+                    <TextView
+                        android:id="@+id/thongbao2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="15dp"
+                        android:text="Thông báo"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/next5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=">"
+                        android:textSize="25dp"
+                        android:layout_marginStart="157dp"
+                        android:layout_gravity="center_vertical"/>
+                </LinearLayout>
+
             </FrameLayout>
 
             <FrameLayout
@@ -263,6 +394,38 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/nentrang_boder">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/matkhau1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="25dp"
+                        android:src="@drawable/ic_key_24" />
+
+                    <TextView
+                        android:id="@+id/matkhau2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="15dp"
+                        android:text="Mật khẩu"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/next6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=">"
+                        android:textSize="25dp"
+                        android:layout_marginStart="167dp"
+                        android:layout_gravity="center_vertical"/>
+                </LinearLayout>
 
             </FrameLayout>
         </LinearLayout>

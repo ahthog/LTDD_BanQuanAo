@@ -82,7 +82,7 @@
 
     <!-- Button -->
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_xacnhan"
         android:layout_marginTop="25dp"
         android:layout_width="match_parent"
         android:layout_height="60dp"

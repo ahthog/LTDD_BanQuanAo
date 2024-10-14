@@ -1,11 +1,14 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/linearLayoutMatHang"
     tools:context="GioHang.MatHang1Fragment">
 
-    <FrameLayout
+    <!-- Mặt hàng 1 -->
+    <LinearLayout
         android:id="@+id/mathang1"
         android:layout_width="match_parent"
         android:layout_height="160dp"
@@ -13,173 +16,171 @@
         android:layout_marginTop="9dp"
         android:layout_marginEnd="16dp"
         android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custom_header">
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|top"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="0dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/imagemathang1"
-                android:layout_width="100dp"
-                android:layout_height="140dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginEnd="10dp"
-                app:srcCompat="@drawable/mathang1" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"> <!-- LinearLayout bên trong để chứa TextView và Spinner theo chiều dọc -->
-
-                <TextView
-                    android:id="@+id/tenmathang1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Dress Fish"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-
-                <Spinner
-                    android:id="@+id/size1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:minHeight="48dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_gravity="start|top"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="0dp"
-                android:layout_marginStart="0dp">
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/delete1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="x"
-                    android:layout_marginStart="120dp"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
+                <ImageView
+                    android:id="@+id/imagemathang1"
+                    android:layout_width="100dp"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="10dp"
+                    app:srcCompat="@drawable/mathang1" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="5dp">
-                    <FrameLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <Button
-                            android:id="@+id/button_giam1"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="start"
-
-                            />
-
-                        <TextView
-                            android:id="@+id/giam_sign1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="-"
-                            android:textSize="25sp"
-                            android:layout_gravity="center"
-                            android:background="@android:color/transparent"
-                            />
-
-                    </FrameLayout>
+                    android:orientation="vertical"> <!-- LinearLayout bên trong để chứa TextView và Spinner theo chiều dọc -->
 
                     <TextView
-                        android:id="@+id/number_display1"
+                        android:id="@+id/tenmathang1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginEnd="5dp"
-                        android:textSize="22sp" />
+                        android:layout_marginTop="5dp"
+                        android:text="Dress Fish"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
 
-                    <FrameLayout
+                    <Spinner
+                        android:id="@+id/size1"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <Button
-                            android:id="@+id/button_tang1"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="end"
-                            />
-
-                        <TextView
-                            android:id="@+id/tang_sign1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="+"
-                            android:textSize="25sp"
-                            android:layout_gravity="center"
-                            android:background="@android:color/transparent"
-                            />
-                    </FrameLayout>
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:minHeight="48dp" />
 
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tien_goc1"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2.700.000"
-                    android:textSize="18sp"
-                    android:layout_gravity="right"
-                    android:layout_marginEnd="15dp"
-                    android:alpha="0.5" />
+                    android:orientation="vertical"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginStart="0dp">
 
-                <TextView
-                    android:id="@+id/tien_giam1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-474.000"
-                    android:textSize="18sp"
-                    android:layout_gravity="right"
-                    android:layout_marginEnd="15dp"
-                    android:alpha="0.9" />
-                <TextView
-                    android:id="@+id/tong_tien1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2.226.000"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_marginEnd="15dp"
-                    android:layout_gravity="right" />
+                    <TextView
+                        android:id="@+id/delete1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="x"
+                        android:layout_marginStart="100dp"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="5dp">
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:id="@+id/button_giam1"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="start"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/giam_sign1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:textSize="25sp"
+                                android:layout_gravity="center"
+                                android:background="@android:color/transparent"
+                                />
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:id="@+id/number_display1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:textSize="22sp" />
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:id="@+id/button_tang1"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="end"
+                                />
+
+                            <TextView
+                                android:id="@+id/tang_sign1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="+"
+                                android:textSize="25sp"
+                                android:layout_gravity="center"
+                                android:background="@android:color/transparent"
+                                />
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tien_goc1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2.700.000"
+                        android:textSize="18sp"
+                        android:layout_gravity="right"
+                        android:layout_marginEnd="15dp"
+                        android:alpha="0.5" />
+
+                    <TextView
+                        android:id="@+id/tien_giam1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-474.000"
+                        android:textSize="18sp"
+                        android:layout_gravity="right"
+                        android:layout_marginEnd="15dp"
+                        android:alpha="0.9" />
+                    <TextView
+                        android:id="@+id/tong_tien1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2.226.000"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="15dp"
+                        android:layout_gravity="right" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </FrameLayout>
+    </LinearLayout>
 
-    <FrameLayout
+    <!-- Mặt hàng 2 -->
+    <LinearLayout
         android:id="@+id/mathang2"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="172dp"
+        android:layout_marginTop="9dp"
         android:layout_marginEnd="16dp"
         android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custom_header">
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -233,7 +234,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="x"
-                    android:layout_marginStart="120dp"
+                    android:layout_marginStart="100dp"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
@@ -331,19 +332,21 @@
                     android:layout_gravity="right" />
             </LinearLayout>
         </LinearLayout>
-    </FrameLayout>
+    </LinearLayout>
 
-    <FrameLayout
+    <!-- Mặt hàng 3 -->
+    <LinearLayout
         android:id="@+id/mathang3"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="336dp"
+        android:layout_marginTop="9dp"
         android:layout_marginEnd="16dp"
         android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custom_header">
+        android:orientation="horizontal">
+
+
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -397,7 +400,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="x"
-                    android:layout_marginStart="120dp"
+                    android:layout_marginStart="100dp"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
@@ -462,7 +465,6 @@
                             android:background="@android:color/transparent"
                             />
                     </FrameLayout>
-
                 </LinearLayout>
 
                 <TextView
@@ -496,5 +498,7 @@
             </LinearLayout>
 
         </LinearLayout>
-    </FrameLayout>
-</FrameLayout>
+
+</LinearLayout>
+
+</LinearLayout>

@@ -8,6 +8,9 @@ import android.os.Handler;
 import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import DatHang.DatHangActivity;
+import GioHang.GioHangActivity;
+
 public class MainActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private int progressStatus = 0; // Giá trị ban đầu của tiến trình
@@ -35,12 +38,12 @@ public class MainActivity extends AppCompatActivity {
                     });
                     try {
                         // Giả lập thời gian tải
-                        Thread.sleep(100); // Dừng 100ms giữa mỗi lần cập nhật
+                        Thread.sleep(10); // Dừng 100ms giữa mỗi lần cập nhật
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
-                Intent intent = new Intent(MainActivity.this, LoginRegisterActivity.class);
+                Intent intent = new Intent(MainActivity.this, GioHangActivity.class);
                 startActivity(intent);
                 finish();
             }

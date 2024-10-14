@@ -19,12 +19,6 @@
             android:name="DatHang.ThanhCongActivity"
             android:exported="false" />
         <activity
-            android:name="DatHang.DatHangThanhCongActivity"
-            android:exported="false" />
-        <activity
-            android:name="DatHang.ThongBaoActivity"
-            android:exported="false" />
-        <activity
             android:name="DatHang.DatHangXoaActivity"
             android:exported="false" />
         <activity
