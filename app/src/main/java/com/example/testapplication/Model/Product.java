@@ -48,6 +48,8 @@ public class Product implements Parcelable {
         return imageResource;
     }
 
+
+
     @Override
     public int describeContents() {
         return 0;

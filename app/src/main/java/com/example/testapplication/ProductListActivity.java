@@ -2,7 +2,7 @@ package com.example.testapplication;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager; // Import GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.testapplication.Adapter.ProductAdapter;
 import com.example.testapplication.Model.Product;
@@ -18,12 +18,11 @@ public class ProductListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product_list);
 
         recyclerViewProducts = findViewById(R.id.recyclerViewProducts);
-        recyclerViewProducts.setLayoutManager(new LinearLayoutManager(this));
+        // Sử dụng GridLayoutManager với 2 cột
+        recyclerViewProducts.setLayoutManager(new GridLayoutManager(this, 2));
 
         // Nhận danh sách sản phẩm từ Intent
         ArrayList<Product> productList = getIntent().getParcelableArrayListExtra("productList");
-
-
 
         // Khởi tạo Adapter
         productAdapter = new ProductAdapter(productList);

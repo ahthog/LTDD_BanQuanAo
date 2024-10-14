@@ -1,27 +1,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="180dp"
+    android:layout_height="250dp"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:layout_margin="20dp">
 
     <ImageView
         android:id="@+id/imageViewProduct"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/textViewProductName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:paddingTop="4dp"
+        android:layout_gravity="center"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewProductPrice"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
+        android:layout_gravity="center"
         android:textColor="@android:color/holo_red_dark" />
 </LinearLayout>

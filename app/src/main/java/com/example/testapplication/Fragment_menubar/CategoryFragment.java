@@ -33,20 +33,28 @@ public class CategoryFragment extends Fragment {
 
         // Tạo danh sách sản phẩm mẫu cho mỗi danh mục
         List<Product> shirts = new ArrayList<>();
-        shirts.add(new Product("Áo Thun Đỏ", 200000, R.drawable.ic_launcher_background));
-        shirts.add(new Product("Áo Thun Xanh", 250000, R.drawable.ic_launcher_background));
-        shirts.add(new Product("Áo Thun Đỏ", 200000, R.drawable.ic_launcher_background));
-        shirts.add(new Product("Áo Thun Xanh", 250000, R.drawable.ic_launcher_background));
-        shirts.add(new Product("Áo Thun Đỏ", 200000, R.drawable.ic_launcher_background));
-        shirts.add(new Product("Áo Thun Xanh", 250000, R.drawable.ic_launcher_background));
+        shirts.add(new Product("Áo Thun Đỏ", 200000, R.drawable.productone));
+        shirts.add(new Product("Áo Thun Xanh", 250000, R.drawable.producttwo));
+        shirts.add(new Product("Áo Thun Tím", 200000, R.drawable.producthree));
+        shirts.add(new Product("Áo Thun Hồng", 250000, R.drawable.productfour));
+        shirts.add(new Product("Áo Thun Đỏ", 200000, R.drawable.productfive));
+        shirts.add(new Product("Áo Thun HUU", 250000, R.drawable.productsix));
+        shirts.add(new Product("Áo Thun Đỏ", 200000, R.drawable.productseven));
+        shirts.add(new Product("Áo Thun Xanh", 250000, R.drawable.productone));
 
         List<Product> pants = new ArrayList<>();
-        pants.add(new Product("Quần Jean Xanh", 300000, R.drawable.ic_launcher_background));
-        pants.add(new Product("Quần Âu Đen", 350000, R.drawable.ic_launcher_background));
+        pants.add(new Product("Quần Jean Xanh", 300000, R.drawable.productfive));
+        pants.add(new Product("Quần Âu Đen", 350000, R.drawable.productseven));
+
+        List<Product> hat = new ArrayList<>();
+        hat.add(new Product("Mũ Lưỡi Trai Đỏ", 100000, R.drawable.productseven));
+        hat.add(new Product("Mũ Bảo Hiểm Xanh", 150000, R.drawable.productone));
+        hat.add(new Product("Mũ Len Đen", 80000, R.drawable.productsix));
 
         // Thêm danh mục vào danh sách
-        categoryList.add(new Category("Áo", R.drawable.ic_launcher_background, shirts));
-        categoryList.add(new Category("Quần", R.drawable.ic_launcher_background, pants));
+        categoryList.add(new Category("Áo", R.drawable.productfour, shirts));
+        categoryList.add(new Category("Quần", R.drawable.productseven, pants));
+        categoryList.add(new Category("Áo khoác", R.drawable.productseven, hat));
 
         categoryAdapter = new CategoryAdapter(categoryList);
         recyclerViewCategories.setAdapter(categoryAdapter);

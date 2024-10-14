@@ -24,8 +24,6 @@
         <activity android:name=".LoginRegisterActivity"/>
         <activity android:name=".RegisterActivity"/>
         <activity android:name=".LoginActivity"/>
-        <activity android:name=".CategoryActivity"
-            android:exported="false"/>
         <activity android:name=".ProductListActivity"
             android:exported="false"/>
     </application>
