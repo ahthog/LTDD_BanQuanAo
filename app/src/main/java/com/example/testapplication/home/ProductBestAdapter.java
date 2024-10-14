@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.widget.ImageView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,9 +39,14 @@ public class ProductBestAdapter extends RecyclerView.Adapter<ProductBestAdapter.
         Product product = bestSellingProducts[position];
         holder.imageView.setImageResource(product.getImageResource()); // Set hình ảnh sản phẩm
 
+        // Đặt sự kiện click cho ImageView
         holder.imageView.setOnClickListener(v -> {
+            // Log để kiểm tra nếu click đã được nhận
+            Log.d("ProductBestAdapter", "Image clicked");
+
+            // Kiểm tra nếu listener không phải null
             if (listener != null) {
-                listener.onItemClick(product); // Truyền sản phẩm khi click vào item
+                listener.onItemClick(product);  // Gọi phương thức onItemClick trong listener
             }
         });
     }
@@ -58,7 +65,7 @@ public class ProductBestAdapter extends RecyclerView.Adapter<ProductBestAdapter.
 
         public ViewHolder(View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.product_image); // Thay đổi id nếu cần
+            imageView = itemView.findViewById(R.id.product_image_best); // Thay đổi id nếu cần
         }
     }
 

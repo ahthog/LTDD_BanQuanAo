@@ -4,9 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-public class ProductAdapter extends FragmentStateAdapter {
+public class HistoryViewPagerAdapter extends FragmentStateAdapter {
 
-    public ProductAdapter(@NonNull Fragment fragment) {
+    public HistoryViewPagerAdapter(@NonNull Fragment fragment) {
         super(fragment);
     }
 
@@ -14,19 +14,19 @@ public class ProductAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         if (position == 0) {
-            return new TabOneFragment();
+            return new TabConfirmFragment();
         } else if (position == 1) {
-            return new TabTwoFragment();
+            return new TabAwaitingPickupFragment();
         } else if (position == 2) {
-            return new TabThreeFragment();
+            return new TaAwaitingShipmentFragment();
         } else if (position == 3) {
-            return new TabFourFragment();
+            return new TabDeliveredFragment();
         }else if (position == 4) {
-            return new TabFiveFragment();
+            return new TabCancelledFragment();
         }else if (position == 5) {
-            return new TabSixFragment();
+            return new TabReturnedFragment();
         }else {
-            return new TabOneFragment();
+            return new TabConfirmFragment();
         }
 
     }

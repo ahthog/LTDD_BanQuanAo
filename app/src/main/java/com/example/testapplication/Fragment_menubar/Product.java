@@ -2,7 +2,7 @@ package com.example.testapplication.Fragment_menubar;
 
 import java.io.Serializable;
 
-public class Product {
+public class Product implements Serializable{
     private int imageResource;
     private String name;
     private String color;  // Đổi 'string' thành 'String'
