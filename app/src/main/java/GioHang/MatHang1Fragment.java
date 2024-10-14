@@ -126,6 +126,8 @@ public class MatHang1Fragment extends Fragment {
             updateTongTien();
         });
 
+
+
         buttonGiam2.setOnClickListener(v -> {
             int currentValue = Integer.parseInt(numberDisplay2.getText().toString());
             if (currentValue > 1) {
@@ -156,17 +158,34 @@ public class MatHang1Fragment extends Fragment {
         delete1.setOnClickListener(v -> {
             linearLayoutMatHang.removeView(mathang1);
             linearLayoutMatHang.requestLayout();
+            // Đặt dữ liệu mặt hàng 1 về 0 trong ViewModel
+            cartViewModel.setTienGoc1(0);
+            cartViewModel.setTienGiam1(0);
+            cartViewModel.setTongTien1(0);
+            updateTongTien(); // Cập nhật lại tổng tiền sau khi xóa
         });
 
         delete2.setOnClickListener(v -> {
             linearLayoutMatHang.removeView(mathang2);
             linearLayoutMatHang.requestLayout();
+            // Đặt dữ liệu mặt hàng 2 về 0 trong ViewModel
+            cartViewModel.setTienGoc2(0);
+            cartViewModel.setTienGiam2(0);
+            cartViewModel.setTongTien2(0);
+            updateTongTien(); // Cập nhật lại tổng tiền sau khi xóa
         });
 
         delete3.setOnClickListener(v -> {
             linearLayoutMatHang.removeView(mathang3);
             linearLayoutMatHang.requestLayout();
+            // Đặt dữ liệu mặt hàng 3 về 0 trong ViewModel
+            cartViewModel.setTienGoc3(0);
+            cartViewModel.setTienGiam3(0);
+            cartViewModel.setTongTien3(0);
+            updateTongTien(); // Cập nhật lại tổng tiền sau khi xóa
         });
+
+
 
         return view;
     }
@@ -213,6 +232,15 @@ public class MatHang1Fragment extends Fragment {
                 // Không làm gì cả nếu không có gì được chọn
             }
         });
+    }
+
+    private void updateCartTotal() {
+        int tongGoc = cartViewModel.getTienGoc1().getValue() + cartViewModel.getTienGoc2().getValue() + cartViewModel.getTienGoc3().getValue();
+        int tongGiam = cartViewModel.getTienGiam1().getValue() + cartViewModel.getTienGiam2().getValue() + cartViewModel.getTienGiam3().getValue();
+        int tongTien = tongGoc - tongGiam;
+
+        // Cập nhật lại tổng tiền trong ViewModel
+        cartViewModel.setTongTien1(tongTien); // Hoặc sử dụng setTongTien cho tổng giỏ hàng
     }
 
     private void updateTienGoc() {
@@ -266,7 +294,7 @@ public class MatHang1Fragment extends Fragment {
         int goc2 = cartViewModel.getTienGoc2().getValue() != null ? cartViewModel.getTienGoc2().getValue() : 0;
         int goc3 = cartViewModel.getTienGoc3().getValue() != null ? cartViewModel.getTienGoc3().getValue() : 0;
 
-        // Cập nhật tổng tiền sau khi trừ tiền giảm
+        // Tính lại tổng tiền sau khi xóa hoặc thay đổi số lượng
         cartViewModel.setTongTien1(goc1 - (cartViewModel.getTienGiam1().getValue() != null ? cartViewModel.getTienGiam1().getValue() : 0));
         cartViewModel.setTongTien2(goc2 - (cartViewModel.getTienGiam2().getValue() != null ? cartViewModel.getTienGiam2().getValue() : 0));
         cartViewModel.setTongTien3(goc3 - (cartViewModel.getTienGiam3().getValue() != null ? cartViewModel.getTienGiam3().getValue() : 0));
@@ -276,4 +304,5 @@ public class MatHang1Fragment extends Fragment {
         tongTien2.setText(String.valueOf(cartViewModel.getTongTien2().getValue()));
         tongTien3.setText(String.valueOf(cartViewModel.getTongTien3().getValue()));
     }
+
 }
