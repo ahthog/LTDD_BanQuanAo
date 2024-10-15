@@ -1,21 +1,19 @@
 package com.example.testapplication.Fragment_menubar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.example.testapplication.DetailFragment.ProductDetailFragment;
-import com.example.testapplication.R;
-
+import android.widget.ImageView;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.viewpager2.widget.ViewPager2;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import androidx.viewpager2.widget.ViewPager2;
+import com.example.testapplication.DetailFragment.ProductDetailFragment;
+import com.example.testapplication.GioHang.GioHangActivity;
+import com.example.testapplication.R;
 import com.example.testapplication.home.HomeBannerAdapter;
 import com.example.testapplication.home.ProductBestAdapter;
 import com.example.testapplication.home.ProductNewAdapter;
@@ -51,6 +49,7 @@ public class HomeFragment extends Fragment {
         viewPager = view.findViewById(R.id.view_pager_banner);
         recyclerView = view.findViewById(R.id.recycler_view_products);
         recyclerViewBest = view.findViewById(R.id.recycler_view_productbest);
+        ImageView cartIcon = view.findViewById(R.id.cart_icon);  // Liên kết ImageView giỏ hàng
 
         // banner
         HomeBannerAdapter adapter = new HomeBannerAdapter(getContext(), banners);
@@ -68,6 +67,9 @@ public class HomeFragment extends Fragment {
 
         // Đặt sự kiện click cho các sản phẩm
         setProductClickListeners(productAdapter, productBestAdapter);
+
+        // Đặt sự kiện click cho biểu tượng giỏ hàng
+        setCartIconClickListener(cartIcon);  // Gọi hàm để đặt sự kiện click
 
         // Auto scroll for banners
         startAutoScroll();
@@ -111,7 +113,13 @@ public class HomeFragment extends Fragment {
         });
     }
 
-
+    private void setCartIconClickListener(ImageView cartIcon) {
+        cartIcon.setOnClickListener(v -> {
+            // Chuyển sang GioHangActivity khi nhấn vào icon giỏ hàng
+            Intent intent = new Intent(getContext(), GioHangActivity.class);
+            startActivity(intent);
+        });
+    }
 
     private void startAutoScroll() {
         viewPager.postDelayed(new Runnable() {
