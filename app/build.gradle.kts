@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.testapplication"
+    namespace = "com.example.myapplication"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.testapplication"
+        applicationId = "com.example.myapplication"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -40,6 +40,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation("com.google.android.material:material:1.2.1")
-    implementation ("androidx.cardview:cardview:1.0.0")
 }

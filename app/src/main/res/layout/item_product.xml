@@ -1,29 +1,36 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="180dp"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
     android:layout_height="250dp"
+    android:layout_margin="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_margin="20dp">
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp">
 
-    <ImageView
-        android:id="@+id/imageViewProduct"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textViewProductName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:paddingTop="4dp"
-        android:layout_gravity="center"
-        android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/product_image"
+            android:layout_width="150dp"
+            android:layout_height="220dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/product_image"
+            android:text="DORIS TOP"
+            android:textAllCaps="true"
+            android:paddingTop="5dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textViewProductPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:layout_gravity="center"
-        android:textColor="@android:color/holo_red_dark" />
-</LinearLayout>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <!-- TextView "Sản phẩm yêu thích" cố định ở trên -->
+    <TextView
+        android:id="@+id/tv_favorite_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sản phẩm yêu thích"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textColor="#161616" />
+
+    <!-- TextView "Miễn phí giao hàng" cố định bên dưới tiêu đề -->
+    <TextView
+        android:id="@+id/tv_free_shipping_notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Miễn phí giao hàng cho Member với đơn từ 500K"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textColor="#000000"
+        />
+
+    <!-- RecyclerView để hiển thị danh sách sản phẩm -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_favorite_products"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical"
+        android:padding="8dp"
+        android:background="@color/white"/>
+
+</LinearLayout>
