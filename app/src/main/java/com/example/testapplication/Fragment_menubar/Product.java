@@ -15,6 +15,11 @@ public class Product implements Parcelable{
     private String price;
     private float rating;
 
+    public Product(String name, int imageResource) {
+        this.name = name;
+        this.imageResource = imageResource;
+    }
+
     // Constructor với tất cả các tham số
     public Product(int imageResource, String name, String color, String description, String price, float rating) {
         this.imageResource = imageResource;

@@ -1,77 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Fragment_menubar.HomeFragment">
+    android:padding="16dp">
 
-    <!-- Tiêu đề Tìm Kiếm -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TÌM KIẾM"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="10dp"
-        android:textSize="24sp"
+        android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@android:color/black"/>
-
-    <!-- Thanh tìm kiếm -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical"
+        />
+    <RelativeLayout
         android:layout_marginTop="20dp"
-        android:background="@drawable/edit_text_border">
-
-        <!-- Icon tìm kiếm -->
-        <ImageView
-            android:id="@+id/search_icon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_search"
-            android:contentDescription="Search Icon"
-            app:tint="@android:color/black"/>
-
-        <!-- AutoCompleteTextView cho thanh tìm kiếm -->
-        <AutoCompleteTextView
-            android:id="@+id/search_auto_complete"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Tìm kiếm..."
-            android:inputType="text"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginStart="8dp"
-            android:background="@drawable/edit_text_border"
-            android:textSize="16sp"/>
-    </LinearLayout>
-    <!-- RecyclerView cho các gợi ý tìm kiếm -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_suggestions"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="16dp"
-        android:background="#FFFFFF"
-        android:padding="8dp"
-        android:scrollbars="horizontal" />
-
-    <!-- RecyclerView cho các sản phẩm mới (cuộn doc) -->
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_products"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:nestedScrollingEnabled="true"
-        android:layout_marginTop="16dp"
-        android:scrollbars="vertical"
-        android:background="#FFFFFF"/>
+        android:backgroundTint="@color/white">
+
+
+        <!-- Thanh tìm kiếm -->
+        <EditText
+            android:id="@+id/search_input"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:hint="Search products"
+            android:layout_alignParentLeft="true"
+            android:imeOptions="actionSearch"
+            android:inputType="text" />
+
+        <!-- Nút bấm tìm kiếm -->
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/black"/>
+
+    </RelativeLayout>
+
+    <!-- Danh sách sản phẩm gợi ý -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_suggestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp" />
 </LinearLayout>

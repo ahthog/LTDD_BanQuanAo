@@ -10,14 +10,30 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.testapplication.Fragment.LoadFragment;
+import com.example.testapplication.Fragment_menubar.Product;
 import com.example.testapplication.Fragment_menubar.ViewPagerAdapter;
+import com.example.testapplication.Fragments.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager2 viewPager;
     private BottomNavigationView bottomNavigationView;
     private FrameLayout fragmentContainer; // Thêm biến cho FrameLayout
+
+    private Product[] products = {
+            new Product("Vay do", R.drawable.productfive),
+            new Product("Vay trang", R.drawable.productfive),
+            new Product("Quan", R.drawable.productfive),
+            new Product("Quan", R.drawable.productfive),
+            new Product("Ao thun1", R.drawable.productfive),
+            new Product("Ao thun2", R.drawable.productfive),
+            new Product("Ao thun3", R.drawable.productfive),
+            new Product("Ao thun5", R.drawable.productfive),
+
+    };
     @Override
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -41,7 +57,11 @@ public class MainActivity extends AppCompatActivity {
                 } else if (position == 1) {
                     bottomNavigationView.getMenu().findItem(R.id.menu_menu).setChecked(true);
                 } else if (position == 2) {
-                    bottomNavigationView.getMenu().findItem(R.id.menu_search).setChecked(true);
+                    SearchFragment searchFragment = new SearchFragment();
+                    searchFragment.setProducts(products);  // Truyền danh sách sản phẩm từ MainActivity
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container, searchFragment)
+                            .commit();
                 } else if (position == 3) {
                     bottomNavigationView.getMenu().findItem(R.id.menu_favorite).setChecked(true);
                 } else if (position == 4) {

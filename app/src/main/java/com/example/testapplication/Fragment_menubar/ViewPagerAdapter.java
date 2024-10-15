@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.testapplication.Fragment.MenuFragment;
+import com.example.testapplication.Fragments.SearchFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
 
