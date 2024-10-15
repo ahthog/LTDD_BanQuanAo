@@ -13,8 +13,9 @@
         android:theme="@style/Theme.TestApplication"
         tools:targetApi="31">
         <activity
-            android:name=".DatHangActivity"
-            android:exported="false" />
+            android:name=".Fragment_menubar.HomeActivity"
+            android:exported="true" />
+
         <activity
             android:name=".ProductListActivity"
             android:exported="false" />
@@ -25,13 +26,19 @@
             android:name=".ProductDetailTest"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
-        <activity
             android:name=".ProductdetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ProductDetailActivity"
+            android:name="TrangCaNhan.TCNActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DatHang.ThanhCongActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DatHang.DatHangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GioHang.GioHangActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

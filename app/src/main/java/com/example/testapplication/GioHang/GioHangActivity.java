@@ -2,6 +2,7 @@ package com.example.testapplication.GioHang;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -12,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.testapplication.DatHang.DatHangActivity;
+import com.example.testapplication.Fragment_menubar.HomeActivity;
 import com.example.testapplication.R;
 
 public class GioHangActivity extends AppCompatActivity {
@@ -33,6 +35,7 @@ public class GioHangActivity extends AppCompatActivity {
         giamGiaTextView = findViewById(R.id.giamgia_value);
         thanhTienTextView = findViewById(R.id.thanhtien_value);
 
+        // Thiết lập giá trị ban đầu
         cartViewModel.setTienGoc1(8100000);
         cartViewModel.setTienGiam1(1422000);
         cartViewModel.setTongTien1(6678000);
@@ -54,6 +57,18 @@ public class GioHangActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        // Ánh xạ ImageView quay lại
+        ImageView imageBack = findViewById(R.id.imageback);
+        // Đặt sự kiện cho ImageView
+        imageBack.setOnClickListener(v -> {
+            // Quay lại HomeActivity
+            Intent intent = new Intent(GioHangActivity.this, HomeActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();  // Đóng Activity hiện tại
+        });
+
+        // Xử lý hệ thống thanh trạng thái (nếu cần)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -82,5 +97,4 @@ public class GioHangActivity extends AppCompatActivity {
         giamGiaTextView.setText(String.valueOf(giamGia));
         thanhTienTextView.setText(String.valueOf(thanhTien));
     }
-
 }

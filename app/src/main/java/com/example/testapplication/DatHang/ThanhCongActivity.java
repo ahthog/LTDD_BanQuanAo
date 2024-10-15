@@ -9,8 +9,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.testapplication.Fragment_menubar.HomeActivity;
 import com.example.testapplication.Fragment_menubar.HomeFragment;
-import com.example.testapplication.MainActivity;  // Đảm bảo rằng MainActivity là nơi chứa fragment trang chủ
+import com.example.testapplication.MainActivity; // Đảm bảo rằng MainActivity là nơi chứa fragment trang chủ
 import com.example.testapplication.R;
 
 public class ThanhCongActivity extends AppCompatActivity {
@@ -25,8 +26,8 @@ public class ThanhCongActivity extends AppCompatActivity {
 
         // Đặt sự kiện khi nhấn vào ảnh
         imageBack.setOnClickListener(v -> {
-            // Quay lại trang chủ bằng cách khởi động lại MainActivity (hoặc Activity khác chứa HomeFragment)
-            Intent intent = new Intent(ThanhCongActivity.this, HomeFragment.class);
+            // Quay lại MainActivity
+            Intent intent = new Intent(ThanhCongActivity.this, HomeActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             finish();  // Đóng Activity hiện tại

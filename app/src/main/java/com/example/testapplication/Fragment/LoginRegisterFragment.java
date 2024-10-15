@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.example.testapplication.Fragment_menubar.HomeFragment;
 import com.example.testapplication.MainActivity;
 import com.example.testapplication.R;
 
@@ -22,7 +24,7 @@ public class LoginRegisterFragment extends Fragment {
         btnLogin.setOnClickListener(v -> {
             // Chuyển sang LoginFragment
             if (getActivity() != null) {
-                ((MainActivity) getActivity()).replaceFragment(new LoginFragment());
+                ((MainActivity) getActivity()).replaceFragment(new HomeFragment());
             }
         });
 
