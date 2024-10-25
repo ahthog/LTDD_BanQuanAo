@@ -1,88 +1,49 @@
 package GioHang;
 
-import android.content.Intent;
+import android.content.Intent;  // Thêm import này
 import android.os.Bundle;
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import android.view.View;
-import android.widget.TextView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import android.view.View;  // Thêm import này
 
 import com.example.testapplication.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import Adapter.GioHangAdapter;
 import DatHang.DatHangActivity;
 
 public class GioHangActivity extends AppCompatActivity {
 
-    private CartViewModel cartViewModel; // Khai báo ViewModel
-    private TextView tongCongTextView, giamGiaTextView, thanhTienTextView;
+    private RecyclerView recyclerView;
+    private GioHangAdapter adapter;
+    private List<GioHang> gioHangList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_gio_hang);
 
-        // Khởi tạo ViewModel
-        cartViewModel = new ViewModelProvider(this).get(CartViewModel.class);
+        // Khởi tạo RecyclerView
+        recyclerView = findViewById(R.id.rcv_giohang);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Ánh xạ các TextView
-        tongCongTextView = findViewById(R.id.tongcong_value);
-        giamGiaTextView = findViewById(R.id.giamgia_value);
-        thanhTienTextView = findViewById(R.id.thanhtien_value);
+        // Tạo dữ liệu mẫu cho giỏ hàng
+        gioHangList = new ArrayList<>();
+        gioHangList.add(new GioHang("Sản phẩm 1", "L", 1, 2700000, 474000, 2226000, R.drawable.mathang1));
+        gioHangList.add(new GioHang("Sản phẩm 2", "M", 2, 3200000, 520000, 5360000, R.drawable.mathang2));
+        gioHangList.add(new GioHang("Sản phẩm 3", "S", 3, 1500000, 150000, 400000, R.drawable.mathang3));
 
-        cartViewModel.setTienGoc1(8100000);
-        cartViewModel.setTienGiam1(1422000);
-        cartViewModel.setTongTien1(6678000);
+        // Khởi tạo Adapter và gán vào RecyclerView
+        adapter = new GioHangAdapter(this, gioHangList);
+        recyclerView.setAdapter(adapter);
 
-        // Thiết lập Observer cho các LiveData
-        cartViewModel.getTienGoc1().observe(this, value -> updateValues());
-        cartViewModel.getTienGoc2().observe(this, value -> updateValues());
-        cartViewModel.getTienGoc3().observe(this, value -> updateValues());
-        cartViewModel.getTienGiam1().observe(this, value -> updateValues());
-        cartViewModel.getTienGiam2().observe(this, value -> updateValues());
-        cartViewModel.getTienGiam3().observe(this, value -> updateValues());
-        cartViewModel.getTongTien1().observe(this, value -> updateValues());
-        cartViewModel.getTongTien2().observe(this, value -> updateValues());
-        cartViewModel.getTongTien3().observe(this, value -> updateValues());
-
-        // Thiết lập listener cho button_dathang
+        // Thêm sự kiện click cho nút đặt hàng
         findViewById(R.id.button_dathang).setOnClickListener(v -> {
             Intent intent = new Intent(GioHangActivity.this, DatHangActivity.class);
             startActivity(intent);
         });
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
     }
-
-    // Phương thức cập nhật các giá trị trong TextView
-    private void updateValues() {
-        // Lấy giá trị mới nhất từ ViewModel
-        int goc1 = cartViewModel.getTienGoc1().getValue() != null ? cartViewModel.getTienGoc1().getValue() : 0;
-        int goc2 = cartViewModel.getTienGoc2().getValue() != null ? cartViewModel.getTienGoc2().getValue() : 0;
-        int goc3 = cartViewModel.getTienGoc3().getValue() != null ? cartViewModel.getTienGoc3().getValue() : 0;
-
-        int giam1 = cartViewModel.getTienGiam1().getValue() != null ? cartViewModel.getTienGiam1().getValue() : 0;
-        int giam2 = cartViewModel.getTienGiam2().getValue() != null ? cartViewModel.getTienGiam2().getValue() : 0;
-        int giam3 = cartViewModel.getTienGiam3().getValue() != null ? cartViewModel.getTienGiam3().getValue() : 0;
-
-        // Tính tổng cộng
-        int tongCong = goc1 + goc2 + goc3;
-        int giamGia = giam1 + giam2 + giam3;
-        int thanhTien = tongCong - giamGia;
-
-        // Cập nhật UI
-        tongCongTextView.setText(String.valueOf(tongCong));
-        giamGiaTextView.setText(String.valueOf(giamGia));
-        thanhTienTextView.setText(String.valueOf(thanhTien));
-    }
-
 }

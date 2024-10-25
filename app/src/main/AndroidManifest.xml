@@ -19,17 +19,12 @@
             android:name="DatHang.ThanhCongActivity"
             android:exported="false" />
         <activity
-            android:name="DatHang.DatHangXoaActivity"
-            android:exported="false" />
-        <activity
             android:name="DatHang.DatHangActivity"
-            android:exported="false" />
-        <activity
-            android:name="GioHang.GioHangXoaActivity"
             android:exported="false" />
         <activity
             android:name="GioHang.GioHangActivity"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
