@@ -4,7 +4,7 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-10-11T13:32:17.167705200Z">
+        <DropdownSelection timestamp="2024-10-26T04:37:55.687338600Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\ASUS VIVOBOOK\.android\avd\Pixel_3_API_28_2.avd" />

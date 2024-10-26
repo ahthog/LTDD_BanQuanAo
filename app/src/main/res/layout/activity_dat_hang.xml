@@ -88,16 +88,12 @@
 
             </FrameLayout>
 
-            <fragment
-                android:id="@+id/fragment1"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcv_dathang"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="15dp"
-                android:name="DatHang.MatHangMua1Fragment"
-                />
+                android:layout_marginBottom="5dp"/>
 
             <fragment
                 android:id="@+id/fragment2"
