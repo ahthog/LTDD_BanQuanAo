@@ -138,7 +138,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="30dp"
@@ -151,15 +151,16 @@
                         android:textSize="18sp" />
                     <TextView
                         android:id="@+id/sotien2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="170dp"
+                        android:layout_marginEnd="25dp"
+                        android:gravity="right"
                         android:text="6.675.000"
                         android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="2dp"
@@ -172,15 +173,16 @@
                         android:textSize="18sp" />
                     <TextView
                         android:id="@+id/sotien3"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="198dp"
+                        android:layout_marginEnd="25dp"
+                        android:gravity="right"
                         android:text="150.000"
                         android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="2dp"
@@ -193,15 +195,16 @@
                         android:textSize="18sp" />
                     <TextView
                         android:id="@+id/sotien4"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="157dp"
+                        android:layout_marginEnd="25dp"
+                        android:gravity="right"
                         android:text="50.000"
                         android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="2dp"
@@ -215,9 +218,10 @@
                         android:textSize="18sp" />
                     <TextView
                         android:id="@+id/sotien5"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="165dp"
+                        android:layout_marginEnd="25dp"
+                        android:gravity="right"
                         android:text="6.575.000"
                         android:textStyle="bold"
                         android:textSize="18sp" />

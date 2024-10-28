@@ -1,41 +1,28 @@
 package GioHang;
 
-public class GioHang {
-    private String tenMathang;      // Tên sản phẩm
-    private String size;            // Kích cỡ sản phẩm
-    private int soLuong;            // Số lượng sản phẩm
-    private double giaGoc;          // Giá gốc của sản phẩm
-    private double giaGiam;         // Giá giảm (nếu có)
-    private double tongTien;        // Tổng tiền sau khi giảm
-    private int imageResId;         // Tham số cho hình ảnh
+import android.os.Parcel;
+import android.os.Parcelable;
 
-    // Constructor
-    public GioHang(String tenMathang, String size, int soLuong, double giaGoc, double giaGiam, double tongTien, int imageResId) {
+public class GioHang implements Parcelable {
+    private String tenMathang;
+    private String size;
+    private int soLuong;
+    private double giaGoc;
+    private double giaGiam;
+    private double thanhTien;
+    private int imageResId;
+
+    public GioHang(String tenMathang, String size, int soLuong, double giaGoc, double giaGiam, double thanhTien, int imageResId) {
         this.tenMathang = tenMathang;
         this.size = size;
         this.soLuong = soLuong;
         this.giaGoc = giaGoc;
         this.giaGiam = giaGiam;
-        this.tongTien = tongTien;
-        this.imageResId = imageResId; // Gán giá trị cho imageResId
+        this.thanhTien = thanhTien;
+        this.imageResId = imageResId;
     }
 
-    public String getTenMathang() {
-        return tenMathang;
-    }
-
-    public void setTenMathang(String tenMathang) {
-        this.tenMathang = tenMathang;
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
+    // Getter và Setter cho soLuong
     public int getSoLuong() {
         return soLuong;
     }
@@ -44,36 +31,67 @@ public class GioHang {
         this.soLuong = soLuong;
     }
 
-    public double getGiaGoc() {
-        return giaGoc;
+    // Các getter khác
+    public String getTenMathang() {
+        return tenMathang;
     }
 
-    public void setGiaGoc(double giaGoc) {
-        this.giaGoc = giaGoc;
+    public String getSize() {
+        return size;
+    }
+
+    public double getGiaGoc() {
+        return giaGoc;
     }
 
     public double getGiaGiam() {
         return giaGiam;
     }
 
-    public void setGiaGiam(double giaGiam) {
-        this.giaGiam = giaGiam;
-    }
-
-    public double getTongTien() {
-        return tongTien;
-    }
-
-    public void setTongTien(double tongTien) {
-        this.tongTien = tongTien;
+    public double getThanhTien() {
+        return thanhTien;
     }
 
     public int getImageResId() {
         return imageResId;
     }
 
-    public void setImageResId(int imageResId) {
-        this.imageResId = imageResId;
+    // Phương thức Parcelable
+    protected GioHang(Parcel in) {
+        tenMathang = in.readString();
+        size = in.readString();
+        soLuong = in.readInt();
+        giaGoc = in.readDouble();
+        giaGiam = in.readDouble();
+        thanhTien = in.readDouble();
+        imageResId = in.readInt();
+    }
+
+    public static final Creator<GioHang> CREATOR = new Creator<GioHang>() {
+        @Override
+        public GioHang createFromParcel(Parcel in) {
+            return new GioHang(in);
+        }
+
+        @Override
+        public GioHang[] newArray(int size) {
+            return new GioHang[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(tenMathang);
+        dest.writeString(size);
+        dest.writeInt(soLuong);
+        dest.writeDouble(giaGoc);
+        dest.writeDouble(giaGiam);
+        dest.writeDouble(thanhTien);
+        dest.writeInt(imageResId);
     }
 }
-

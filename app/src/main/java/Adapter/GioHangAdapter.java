@@ -13,20 +13,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.testapplication.R;
-
 import java.util.List;
 
 import GioHang.GioHang;
+import com.example.testapplication.R;
 
 public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.GioHangViewHolder> {
 
     private Context context;
     private List<GioHang> gioHangList;
+    private OnQuantityChangeListener quantityChangeListener;
 
-    public GioHangAdapter(Context context, List<GioHang> gioHangList) {
+    public GioHangAdapter(Context context, List<GioHang> gioHangList, OnQuantityChangeListener listener) {
         this.context = context;
         this.gioHangList = gioHangList;
+        this.quantityChangeListener = listener;
     }
 
     @NonNull
@@ -43,10 +44,15 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.GioHangV
         // Thiết lập các giá trị cho các thuộc tính
         holder.tenMathang.setText(gioHang.getTenMathang());
         holder.soLuong.setText(String.valueOf(gioHang.getSoLuong()));
-        holder.giaGoc.setText(String.valueOf(gioHang.getGiaGoc()));
-        holder.giaGiam.setText(String.valueOf(gioHang.getGiaGiam()));
-        holder.tongTien.setText(String.valueOf(gioHang.getTongTien()));
-        holder.imagemathang.setImageResource(gioHang.getImageResId()); // Đặt hình ảnh
+
+        // Cập nhật giá gốc, giá giảm và thành tiền
+        holder.giaGoc.setText(String.valueOf(gioHang.getGiaGoc())); // Giá gốc
+        holder.giaGiam.setText(String.valueOf(gioHang.getGiaGiam())); // Giá giảm
+
+        // Tính thành tiền dựa trên số lượng
+        double tongTien = gioHang.getGiaGoc() * gioHang.getSoLuong() - gioHang.getGiaGiam() * gioHang.getSoLuong();
+        holder.tongTien.setText(String.valueOf(tongTien)); // Thành tiền
+        holder.imagemathang.setImageResource(gioHang.getImageResId());
 
         // Thiết lập Adapter cho Spinner
         String[] sizeOptions = {"S", "M", "L", "XL"};
@@ -58,22 +64,44 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.GioHangV
         int spinnerPosition = sizeAdapter.getPosition(gioHang.getSize());
         holder.size.setSelection(spinnerPosition);
 
-        // Xử lý sự kiện cho các nút tăng/giảm số lượng
-        holder.buttonTang.setOnClickListener(v -> {
-            int newQuantity = gioHang.getSoLuong() + 1;
-            gioHang.setSoLuong(newQuantity);
-            holder.soLuong.setText(String.valueOf(newQuantity));
-            holder.tongTien.setText(String.valueOf((gioHang.getGiaGoc() - gioHang.getGiaGiam()) * newQuantity));
+        // Thêm sự kiện click cho nút xóa
+        holder.delete.setOnClickListener(v -> {
+            removeItem(position);
+            quantityChangeListener.onQuantityChanged(); // Cập nhật tổng số tiền khi xóa sản phẩm
         });
 
+        // Thêm sự kiện click cho nút giảm số lượng
         holder.buttonGiam.setOnClickListener(v -> {
-            int newQuantity = gioHang.getSoLuong() - 1;
-            if (newQuantity > 0) {
-                gioHang.setSoLuong(newQuantity);
-                holder.soLuong.setText(String.valueOf(newQuantity));
-                holder.tongTien.setText(String.valueOf((gioHang.getGiaGoc() - gioHang.getGiaGiam()) * newQuantity));
+            int currentQuantity = gioHang.getSoLuong();
+            if (currentQuantity > 1) {
+                currentQuantity--;
+                gioHang.setSoLuong(currentQuantity);
+                holder.soLuong.setText(String.valueOf(currentQuantity));
+                // Cập nhật lại giá trị thành tiền
+                double newTongTien = gioHang.getGiaGoc() * currentQuantity - gioHang.getGiaGiam() * currentQuantity;
+                holder.tongTien.setText(String.valueOf(newTongTien));
+                quantityChangeListener.onQuantityChanged(); // Cập nhật tổng số tiền khi giảm số lượng
             }
         });
+
+        // Thêm sự kiện click cho nút tăng số lượng
+        holder.buttonTang.setOnClickListener(v -> {
+            int currentQuantity = gioHang.getSoLuong();
+            currentQuantity++;
+            gioHang.setSoLuong(currentQuantity);
+            holder.soLuong.setText(String.valueOf(currentQuantity));
+            // Cập nhật lại giá trị thành tiền
+            double newTongTien = gioHang.getGiaGoc() * currentQuantity - gioHang.getGiaGiam() * currentQuantity;
+            holder.tongTien.setText(String.valueOf(newTongTien));
+            quantityChangeListener.onQuantityChanged(); // Cập nhật tổng số tiền khi tăng số lượng
+        });
+    }
+
+
+    public void removeItem(int position) {
+        gioHangList.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, gioHangList.size()); // Cập nhật lại vị trí các item
     }
 
     @Override
@@ -82,11 +110,10 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.GioHangV
     }
 
     public static class GioHangViewHolder extends RecyclerView.ViewHolder {
-
-        TextView tenMathang, soLuong, giaGoc, giaGiam, tongTien;
+        TextView tenMathang, soLuong, giaGoc, giaGiam, tongTien, delete; // Thêm delete vào danh sách
         ImageView imagemathang;
-        Button buttonTang, buttonGiam;
         Spinner size;
+        Button buttonGiam, buttonTang; // Nút giảm và tăng
 
         public GioHangViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -97,8 +124,14 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.GioHangV
             giaGiam = itemView.findViewById(R.id.tien_giam1);
             tongTien = itemView.findViewById(R.id.tong_tien1);
             imagemathang = itemView.findViewById(R.id.imagemathang1);
-            buttonTang = itemView.findViewById(R.id.button_tang1);
-            buttonGiam = itemView.findViewById(R.id.button_giam1);
+            delete = itemView.findViewById(R.id.delete1); // Khởi tạo delete
+            buttonGiam = itemView.findViewById(R.id.button_giam1); // Khởi tạo nút giảm
+            buttonTang = itemView.findViewById(R.id.button_tang1); // Khởi tạo nút tăng
         }
+    }
+
+    // Interface để thông báo thay đổi số lượng
+    public interface OnQuantityChangeListener {
+        void onQuantityChanged();
     }
 }

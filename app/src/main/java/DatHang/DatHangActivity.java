@@ -16,16 +16,13 @@ import android.widget.ImageView;
 import androidx.recyclerview.widget.RecyclerView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
 import com.example.testapplication.R;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import Adapter.DatHangAdapter;
+import GioHang.GioHang;
 import GioHang.GioHangActivity;
 
 public class DatHangActivity extends AppCompatActivity {
@@ -47,15 +44,50 @@ public class DatHangActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rcv_dathang);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Tạo dữ liệu cho danh sách đặt hàng
+        // Nhận danh sách sản phẩm từ Intent
+        Intent intent = getIntent();
+        List<GioHang> gioHangList = intent.getParcelableArrayListExtra("gioHangList");
+
+        // Nhận tổng tiền, tổng giảm và thành tiền từ Intent
+        int tongCong = intent.getIntExtra("tongCong", 0);
+        int tongGiam = intent.getIntExtra("tongGiam", 0);
+        int thanhTien = intent.getIntExtra("thanhTien", 0);
+
+        // Chuyển đổi từ danh sách giỏ hàng sang danh sách đặt hàng
         datHangList = new ArrayList<>();
-        datHangList.add(new DatHang("Sản phẩm 1", "M", 1, 100000,  R.drawable.mathang1));
-        datHangList.add(new DatHang("Sản phẩm 2", "L", 2, 200000,  R.drawable.mathang2));
-        datHangList.add(new DatHang("Sản phẩm 3", "XL", 3, 300000, R.drawable.mathang3));
+        if (gioHangList != null) {
+            for (GioHang item : gioHangList) {
+                datHangList.add(new DatHang(
+                        item.getTenMathang(),
+                        item.getSize(),
+                        item.getSoLuong(),
+                        item.getGiaGoc(),
+                        item.getImageResId()
+                ));
+            }
+        }
 
         // Khởi tạo Adapter và gán cho RecyclerView
         adapter = new DatHangAdapter(this, datHangList);
         recyclerView.setAdapter(adapter);
+
+        // Nhận tổng tiền, tổng giảm và thành tiền từ Intent
+        // Tạo Bundle để truyền dữ liệu vào Fragment
+        Bundle bundle = new Bundle();
+        bundle.putInt("tongCong", tongCong);
+        bundle.putInt("tongGiam", tongGiam);
+        bundle.putInt("thanhTien", thanhTien);
+
+
+
+        // Khởi tạo Fragment và thiết lập Bundle
+        PhuongThucTT1Fragment fragment = new PhuongThucTT1Fragment();
+        fragment.setArguments(bundle);
+
+        // Thay thế Fragment trong Activity
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment2, fragment) // R.id.fragment_container là ID của FrameLayout trong activity_dat_hang.xml
+                .commit();
 
         // Khởi tạo các thành phần giao diện
         confirmButton = findViewById(R.id.button2);
@@ -70,15 +102,15 @@ public class DatHangActivity extends AppCompatActivity {
         });
 
         // Xử lý sự kiện nhấn vào TextView nhập địa chỉ
-        nhapDiaChi.setOnClickListener(v -> {
-            showAddressInputDialog();
-        });
+        nhapDiaChi.setOnClickListener(v -> showAddressInputDialog());
 
         confirmButton.setOnClickListener(v -> {
             overlay.setVisibility(View.VISIBLE);
             showPinDialog();
         });
     }
+
+
 
     private void showAddressInputDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

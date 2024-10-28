@@ -21,7 +21,7 @@ public class DatHangAdapter extends RecyclerView.Adapter<DatHangAdapter.DatHangV
     private Context context;
     private List<DatHang> datHangList;
 
-    // Constructor cho adapter
+    // Constructor
     public DatHangAdapter(Context context, List<DatHang> datHangList) {
         this.context = context;
         this.datHangList = datHangList;
@@ -44,6 +44,13 @@ public class DatHangAdapter extends RecyclerView.Adapter<DatHangAdapter.DatHangV
         holder.soLuong.setText("x" + datHang.getSoLuong());
         holder.tongTien.setText(String.valueOf(datHang.getTongTien()));
         holder.hinhAnh.setImageResource(datHang.getHinhAnh());
+
+        // Sự kiện xóa sản phẩm khi nhấn delete1
+        holder.delete1.setOnClickListener(v -> {
+            datHangList.remove(position);
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position, datHangList.size());
+        });
     }
 
     @Override
@@ -51,10 +58,9 @@ public class DatHangAdapter extends RecyclerView.Adapter<DatHangAdapter.DatHangV
         return datHangList.size();
     }
 
-    // Lớp ViewHolder để giữ các view item
+    // ViewHolder
     public static class DatHangViewHolder extends RecyclerView.ViewHolder {
-
-        TextView tenMatHang, sizeMatHang, soLuong, tongTien;
+        TextView tenMatHang, sizeMatHang, soLuong, tongTien, delete1;
         ImageView hinhAnh;
 
         public DatHangViewHolder(@NonNull View itemView) {
@@ -63,6 +69,7 @@ public class DatHangAdapter extends RecyclerView.Adapter<DatHangAdapter.DatHangV
             sizeMatHang = itemView.findViewById(R.id.sizemathang1);
             soLuong = itemView.findViewById(R.id.number_display1);
             tongTien = itemView.findViewById(R.id.tong_tien1);
+            delete1 = itemView.findViewById(R.id.delete1);  // Nút xóa
             hinhAnh = itemView.findViewById(R.id.imagemathang1);
         }
     }
