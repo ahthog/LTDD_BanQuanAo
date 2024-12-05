@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- Tiêu đề Trang -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Điểm Tích Lũy"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"/>
+
+    <!-- Hiển thị số điểm -->
+    <TextView
+        android:id="@+id/pointsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:text="Điểm tích lũy của bạn: 0 điểm"
+        android:textColor="#FF5722"
+        android:textSize="18sp" />
+
+    <!-- RecyclerView để hiển thị lịch sử vé đã đổi -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- Hướng dẫn cách tích lũy điểm -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cách tích điểm:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="• Mỗi 10,000 VND chi tiêu sẽ nhận 1 điểm.\n• Tích lũy điểm để nhận ưu đãi đặc biệt."
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Nhập số điểm muốn đổi -->
+    <EditText
+        android:id="@+id/pointsToRedeemEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập số điểm muốn đổi"
+        android:inputType="number"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Nút quy đổi điểm -->
+    <Button
+        android:id="@+id/redeemPointsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quy đổi điểm"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"/>
+
+</LinearLayout>

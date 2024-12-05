@@ -1,0 +1,27 @@
+<!-- item_discount_ticket.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <!-- Mô tả vé giảm giá -->
+    <TextView
+        android:id="@+id/ticketDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mô tả vé"
+        android:textSize="16sp"
+        android:textColor="#333333"/>
+
+    <!-- Giá trị giảm giá -->
+    <TextView
+        android:id="@+id/discountValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10,000 VND"
+        android:textSize="16sp"
+        android:textColor="#FF5722"
+        android:layout_marginTop="8dp"/>
+</LinearLayout>

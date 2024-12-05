@@ -1,15 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment_menubar.HomeFragment">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
-        android:layout_centerInParent="true"/>
+        android:text="TÌM KIẾM"
+        android:textStyle="bold"
+        android:textSize="20dp"/>
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="5dp"
+        android:background="@drawable/bg_search">
+
+        <EditText
+            android:id="@+id/search_input"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:hint="Nhập tên sản phẩm"
+            android:layout_centerInParent="true"
+            android:imeOptions="actionSearch"
+            android:background="@drawable/bg_search"
+            android:layout_alignParentLeft="true"/> <!-- Thêm thuộc tính này để hiển thị biểu tượng tìm kiếm trên bàn phím -->
+
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tìm kiếm"
+            android:padding="0dp"
+            android:layout_alignParentRight="true"
+            android:backgroundTint="@color/black"/>
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_suggestions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- RecyclerView cho kết quả tìm kiếm -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:background="#EFEFEF"
+        android:layout_marginTop="20dp"
+        android:id="@+id/recycler_view_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+</LinearLayout>

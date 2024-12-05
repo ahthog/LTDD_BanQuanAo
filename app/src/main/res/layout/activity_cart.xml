@@ -1,0 +1,149 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/cart"
+    android:layout_marginBottom="10dp"
+    android:background="#FFFFFF">
+
+    <!-- Nhóm các TextView vào một LinearLayout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="202dp"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Layout ngang cho tiêu đề và icon -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- Tiêu đề Giỏ Hàng -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="5dp"
+                android:text="GIỎ HÀNG"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Hiển thị số lượng sản phẩm trong giỏ hàng -->
+            <TextView
+                android:id="@+id/item_count_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(0)"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <!-- Icon giỏ hàng nằm bên phải -->
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Icon Giỏ Hàng"
+                android:src="@drawable/icon_cart" />
+        </LinearLayout>
+
+        <!-- Hiển thị Tổng cộng tiền -->
+        <TextView
+            android:id="@+id/total_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:paddingRight="5dp"
+            android:text="Tổng cộng: "
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <!-- Hiển thị Giảm giá -->
+        <TextView
+            android:id="@+id/total_text_view1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:paddingRight="5dp"
+            android:text="Giảm giá: "
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <!-- Hiển thị Thành tiền sau giảm giá -->
+        <TextView
+            android:id="@+id/total_text_view2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:paddingRight="5dp"
+            android:text="Thành tiền: "
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <!-- Thêm TextView để sửa, in đậm và canh phải -->
+        <TextView
+            android:id="@+id/total_edit_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingRight="5dp"
+            android:text="Sửa"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- RecyclerView hiển thị sản phẩm trong giỏ hàng -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cart_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#E9E9E9"
+        android:layout_marginTop="10dp"/>
+
+    <!-- Nút Đặt hàng -->
+    <Button
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:text="Đặt hàng"
+        android:layout_gravity="center"/>
+    <LinearLayout
+        android:id="@+id/edit_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:padding="16dp">
+
+        <!-- Checkbox chọn tất cả -->
+        <CheckBox
+            android:id="@+id/select_all_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chọn tất cả"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <!-- Nút Xóa -->
+        <Button
+            android:id="@+id/delete_selected_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="180dp"
+            android:background="@color/black"
+            android:padding="8dp"
+            android:text="Xóa"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</LinearLayout>
